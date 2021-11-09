@@ -1,17 +1,16 @@
 <html>
   <head>
-	<title>BLUE APP : version 1.0 </title>
+	<title>GREEN APP : version 2.0 </title>
 	<style>
 		body{
-			background-color:blue;
+			background-color:green;
 			color:#fff;
 		}
 	</style>
   </head>
     <body>
-    <h1>BLUE APP</h1>
-    I'm BLUE 
-    <P>version 1.0</P>
+    <h1>GREEN APP</h1>
+    I'm GREEN 
+    <P>version 2.0</P>
 </body>
 </html>
-
