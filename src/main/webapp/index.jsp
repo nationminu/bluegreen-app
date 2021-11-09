@@ -1,6 +1,6 @@
 <html>
   <head>
-	<title>GREEN APP : version 2.0 </title>
+	<title>GREEN APP : version 1.0 </title>
 	<style>
 		body{
 			background-color:green;
@@ -11,6 +11,6 @@
     <body>
     <h1>GREEN APP</h1>
     I'm GREEN 
-    <P>version 2.0</P>
+    <P>version 1.0</P>
 </body>
 </html>
