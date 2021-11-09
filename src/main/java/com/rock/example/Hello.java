@@ -51,11 +51,12 @@ public class Hello extends HttpServlet {
 		    else ival = new Integer (ival.intValue() + 1);
 		    session.setAttribute ("counter", ival);
 		      
-            //source.put("ip", request.getRemoteAddr().toString());
-            source.put("ip", InetAddress.getLocalHost().getHostAddress().toString());
-            source.put("hostname", InetAddress.getLocalHost().getHostName().toString());
+		    //source.put("ip", request.getRemoteAddr().toString());
+		    source.put("ip", InetAddress.getLocalHost().getHostAddress().toString());
+		    source.put("hostname", InetAddress.getLocalHost().getHostName().toString());
 		    source.put("sessionid", session.getId()); 
 		    source.put("count", ival.toString());
+		    source.put("version", "2.0");
 		    
 		    String json = new Gson().toJson(source);
 
