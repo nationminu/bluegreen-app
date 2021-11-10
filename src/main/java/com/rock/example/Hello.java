@@ -63,6 +63,7 @@ public class Hello extends HttpServlet {
 		    source.put("hostname", InetAddress.getLocalHost().getHostName().toString());
 		    source.put("sessionId", session.getId()); 
 		    source.put("count", ival.toString());
+		    source.put("app", "white");
 		    source.put("version", "1.0");
 		    source.put("timeElapsed", timeElapsed); 
 		    
