@@ -1,15 +1,14 @@
 package com.rock.example;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.PrintWriter; 
 import java.net.InetAddress; 
 import java.util.HashMap;
  
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession; 
+import javax.servlet.http.HttpServletResponse; 
 import javax.servlet.annotation.WebServlet;
 
 import com.google.gson.Gson;
@@ -17,14 +16,14 @@ import com.google.gson.Gson;
 /**
  * Servlet implementation class Hello
  */
-@WebServlet("/Hello")
-public class Hello extends HttpServlet {
+@WebServlet("/Ping")
+public class Ping extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Hello() {
+    public Ping() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,37 +35,18 @@ public class Hello extends HttpServlet {
 		// TODO Auto-generated method stub
 		  
 	    response.setContentType("application/json");
-	    response.setCharacterEncoding("UTF-8");
+	    response.setCharacterEncoding("UTF-8"); 
 
-        long start = System.currentTimeMillis(); 
-	    
-		PrintWriter out = response.getWriter();
-		HttpSession session; 
+		PrintWriter out = response.getWriter(); 
 		
-		try { 
-			session = request.getSession(true);
-            HashMap<String,Object> source = new HashMap<>(); 
-
-            long finish = System.currentTimeMillis();
-            long timeElapsed = finish - start;
-            			
-			// Get the session data value
-		    Integer ival = (Integer) session.getAttribute("counter");
-			 
-		    if (ival == null) ival = new Integer (1);
-		    else ival = new Integer (ival.intValue() + 1);
-		    session.setAttribute ("counter", ival);
-		      
-		    //source.put("ip", request.getRemoteAddr().toString());
-		    source.put("pageCode", "0002"); 
+		try {  
+            HashMap<String,Object> source = new HashMap<>();  
+             
+		    source.put("pageCode", "0001"); 
 		    source.put("ip", InetAddress.getLocalHost().getHostAddress().toString());
 		    source.put("hostname", InetAddress.getLocalHost().getHostName().toString());
-		    source.put("sessionId", session.getId()); 
-		    source.put("count", ival.toString());
-		    source.put("app", "blue");
-		    source.put("version", "2.0");
-		    source.put("timeElapsed", timeElapsed); 
-		    
+		    source.put("ping", "pong"); 
+
 		    String json = new Gson().toJson(source);
 
 		    out.print(json);
