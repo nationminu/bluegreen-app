@@ -6,8 +6,8 @@
 	<meta http-equiv="Expires" content="0" />
 	<style>
 		body{
-			background-color:fff;
-			color:#fff;
+			background-color:#fff;
+			color:#000;
 		}
 	</style>
   </head>
