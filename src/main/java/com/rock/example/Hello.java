@@ -56,7 +56,7 @@ public class Hello extends HttpServlet {
 		    source.put("hostname", InetAddress.getLocalHost().getHostName().toString());
 		    source.put("sessionid", session.getId()); 
 		    source.put("count", ival.toString());
-		    source.put("version", "0.1");
+		    source.put("version", "0.2");
 		    
 		    String json = new Gson().toJson(source);
 
