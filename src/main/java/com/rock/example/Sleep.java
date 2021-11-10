@@ -17,14 +17,14 @@ import com.google.gson.Gson;
 /**
  * Servlet implementation class Hello
  */
-@WebServlet("/Hello")
-public class Hello extends HttpServlet {
+@WebServlet("/Sleep")
+public class Sleep extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Hello() {
+    public Sleep() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,6 +37,11 @@ public class Hello extends HttpServlet {
 		  
 	    response.setContentType("application/json");
 	    response.setCharacterEncoding("UTF-8");
+		
+		String sleep = "1";
+		if(request.getParameter("sleep") != null) sleep = request.getParameter("sleep");
+
+		long time = Long.parseLong(sleep) * 1000; 
 
         long start = System.currentTimeMillis(); 
 	    
@@ -47,8 +52,7 @@ public class Hello extends HttpServlet {
 			session = request.getSession(true);
             HashMap<String,Object> source = new HashMap<>(); 
 
-            long finish = System.currentTimeMillis();
-            long timeElapsed = finish - start;
+			Thread.sleep(time);
             			
 			// Get the session data value
 		    Integer ival = (Integer) session.getAttribute("counter");
@@ -58,13 +62,15 @@ public class Hello extends HttpServlet {
 		    session.setAttribute ("counter", ival);
 		      
 		    //source.put("ip", request.getRemoteAddr().toString());
-		    source.put("pageCode", "0002"); 
+		    source.put("pageCode", "0003"); 
 		    source.put("ip", InetAddress.getLocalHost().getHostAddress().toString());
 		    source.put("hostname", InetAddress.getLocalHost().getHostName().toString());
-		    source.put("sessionId", session.getId()); 
-		    source.put("count", ival.toString());
-		    source.put("version", "1.0");
-		    source.put("timeElapsed", timeElapsed); 
+
+            long finish = System.currentTimeMillis();
+            long timeElapsed = finish - start;
+
+		    source.put("expected", time);  
+		    source.put("elapsed", timeElapsed); 
 		    
 		    String json = new Gson().toJson(source);
 
