@@ -15,7 +15,7 @@
 %>
 <html>
   <head>
-	<title>WHITE APP : version 1.0 </title>
+	<title>WHITE APP : version 2.0 </title>
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="0" />
@@ -31,7 +31,7 @@
     
 	<h2>I'm WHITE</h2>
     
-	<P>Version 1.0</P>
+	<P>Version 2.0</P>
 
 	<%
 		double end = System.nanoTime();
