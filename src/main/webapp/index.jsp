@@ -31,7 +31,7 @@
     
 	<h2>I'm WHITE</h2>
     
-	<P>Version 2.0</P>
+	<P>Version 1.0</P>
 
 	<%
 		double end = System.nanoTime();
